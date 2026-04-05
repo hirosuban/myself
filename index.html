@@ -77,9 +77,15 @@
             <section id="works">
                 <h2>Works</h2>
                 <div class="work-category">
-                    <h3>執筆</h3>
+                    <h3>書いているもの</h3>
                     <div class="work-item">
                         <a href="https://zenn.dev/kannna5296" target="_blank">Zenn</a> - 技術記事等
+                    </div>
+                    <div class="recent-articles-label">
+                        最近の記事：<span id="days-since-post" class="days-since-post"></span>
+                    </div>
+                    <div id="zenn-articles" class="zenn-articles-list">
+                        <div class="loading-text">読み込み中...</div>
                     </div>
                 </div>
                 <div class="work-category">
@@ -127,5 +133,6 @@
             <p>&copy; 2026 Masahiro Yamane</p>
         </footer>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
