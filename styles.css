@@ -45,18 +45,31 @@ a:hover {
 }
 
 /* ========================================
-   ヘッダー
+   ヘッダー / ヒーロー
    ======================================== */
 header {
     margin-bottom: 72px;
 }
 
-.header-content {
-    text-align: center;
+.hero {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    padding: 8px 0;
 }
 
-.profile-image {
-    margin-bottom: 20px;
+.hero-left {
+    width: 148px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.hero-right {
+    flex: 1;
+    text-align: left;
 }
 
 .profile-image img {
@@ -65,12 +78,13 @@ header {
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid #e8e3dd;
+    display: block;
 }
 
 h1 {
     font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     color: #1a1a1a;
 }
 
@@ -78,19 +92,66 @@ h1 {
     font-size: 0.95rem;
     color: #4a7c59;
     font-weight: 600;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     letter-spacing: 0.02em;
 }
 
 .catchphrase {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #374151;
     font-weight: 500;
-    line-height: 1.8;
-    margin-bottom: 24px;
-    max-width: 480px;
-    margin-left: auto;
-    margin-right: auto;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+/* ========================================
+   ヒーローサマリー（仕事を頼む人向け）
+   ======================================== */
+.hero-summary {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px 16px;
+    background-color: #ffffff;
+    border: 1px solid #e8e3dd;
+    border-radius: 8px;
+}
+
+.summary-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 0.875rem;
+    color: #374151;
+}
+
+.summary-label {
+    color: #9ca3af;
+    font-size: 0.78rem;
+    min-width: 2.4em;
+    flex-shrink: 0;
+}
+
+.summary-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.hero-contact-link {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #3b6948;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.hero-contact-link:hover {
+    color: #2d5238;
+    text-decoration: underline;
 }
 
 /* ========================================
@@ -101,7 +162,6 @@ h1 {
     display: flex;
     justify-content: center;
     gap: 12px;
-    margin-top: 8px;
 }
 
 .social-icon {
@@ -469,6 +529,32 @@ footer p {
 
     .interests-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .hero-left {
+        width: auto;
+    }
+
+    .hero-right {
+        text-align: center;
+        width: 100%;
+    }
+
+    .summary-row {
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .hero-contact-link {
+        display: block;
+        text-align: center;
     }
 }
 
