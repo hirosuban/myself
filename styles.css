@@ -16,7 +16,7 @@ body {
     font-size: 16px;
     line-height: 1.7;
     color: #1a1a1a;
-    background-color: #ffffff;
+    background-color: #fbfaf7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -31,18 +31,45 @@ body {
 }
 
 /* ========================================
-   ヘッダー
+   リンク
+   ======================================== */
+a {
+    color: #3b6948;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #2d5238;
+    text-decoration: underline;
+}
+
+/* ========================================
+   ヘッダー / ヒーロー
    ======================================== */
 header {
-    margin-bottom: 60px;
+    margin-bottom: 72px;
 }
 
-.header-content {
-    text-align: center;
+.hero {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    padding: 8px 0;
 }
 
-.profile-image {
-    margin-bottom: 20px;
+.hero-left {
+    width: 148px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.hero-right {
+    flex: 1;
+    text-align: left;
 }
 
 .profile-image img {
@@ -50,36 +77,126 @@ header {
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #e5e7eb;
+    border: 2px solid #e8e3dd;
+    display: block;
 }
 
 h1 {
     font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     color: #1a1a1a;
 }
 
-.subtitle {
+.tagline {
+    font-size: 0.95rem;
+    color: #4a7c59;
+    font-weight: 600;
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+}
+
+.catchphrase {
     font-size: 1rem;
-    color: #6b7280;
-    font-weight: 400;
+    color: #374151;
+    font-weight: 500;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+/* ========================================
+   ヒーローサマリー（仕事を頼む人向け）
+   ======================================== */
+.hero-summary {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px 16px;
+    background-color: #ffffff;
+    border: 1px solid #e8e3dd;
+    border-radius: 8px;
+}
+
+.summary-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 0.875rem;
+    color: #374151;
+}
+
+.summary-label {
+    color: #9ca3af;
+    font-size: 0.78rem;
+    min-width: 2.4em;
+    flex-shrink: 0;
+}
+
+.summary-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.hero-contact-link {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #3b6948;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.hero-contact-link:hover {
+    color: #2d5238;
+    text-decoration: underline;
+}
+
+/* ========================================
+   ソーシャルアイコン
+   ======================================== */
+.social-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #edeae3;
+    color: #4a4a4a;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.social-icon:hover {
+    background-color: #4a7c59;
+    color: #ffffff;
+    text-decoration: none;
 }
 
 /* ========================================
    セクション
    ======================================== */
 section {
-    margin-bottom: 60px;
+    margin-bottom: 72px;
 }
 
 section h2 {
     font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: 24px;
+    margin-bottom: 28px;
     color: #1a1a1a;
-    border-bottom: 1px solid #e5e7eb;
-    padding-bottom: 8px;
+    border-bottom: 2px solid #d4c9b8;
+    padding-bottom: 10px;
 }
 
 section p {
@@ -88,64 +205,93 @@ section p {
 }
 
 /* ========================================
-   About セクション
+   タイムライン（Career）
    ======================================== */
-.social-links {
-    list-style: none;
-    margin-top: 20px;
+.timeline {
+    position: relative;
+    padding-left: 28px;
 }
 
-.social-links li {
-    margin-bottom: 8px;
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background-color: #d4c9b8;
 }
 
-.social-links a {
-    color: #2563eb;
-    text-decoration: none;
-    transition: color 0.2s ease;
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #ede8e0;
 }
 
-.social-links a:hover {
-    color: #1d4ed8;
-    text-decoration: underline;
-}
-
-/* ========================================
-   Career セクション
-   ======================================== */
-.career-item {
-    margin-bottom: 32px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid #f3f4f6;
-}
-
-.career-item:last-child {
+.timeline-item:last-child {
     border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
-.career-item h3 {
+.timeline-dot {
+    position: absolute;
+    left: -24px;
+    top: 7px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #4a7c59;
+    border: 2px solid #fbfaf7;
+    box-shadow: 0 0 0 2px #4a7c59;
+}
+
+.timeline-content h3 {
     font-size: 1.125rem;
     font-weight: 600;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
     color: #1a1a1a;
 }
 
-.career-item .role {
+.timeline-content .role {
     font-size: 0.875rem;
     color: #6b7280;
+    margin-bottom: 10px;
+}
+
+.timeline-content .description {
+    color: #374151;
+    line-height: 1.6;
     margin-bottom: 12px;
 }
 
-.career-item .description {
-    color: #374151;
-    line-height: 1.6;
+/* ========================================
+   スキルバッジ
+   ======================================== */
+.skill-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    background-color: #eef4f0;
+    color: #2d6a4f;
+    border: 1px solid #c5ddd0;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 500;
 }
 
 /* ========================================
    Works セクション
    ======================================== */
 .work-category {
-    margin-bottom: 28px;
+    margin-bottom: 32px;
 }
 
 .work-category h3 {
@@ -157,39 +303,192 @@ section p {
 
 .work-item {
     margin-bottom: 12px;
-    padding-left: 16px;
     color: #374151;
 }
 
-.work-item a {
-    color: #2563eb;
-    text-decoration: none;
-    transition: color 0.2s ease;
+.featured-work {
+    background-color: #f5f0eb;
+    border-left: 3px solid #4a7c59;
+    padding: 14px 16px;
+    border-radius: 0 6px 6px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-.work-item a:hover {
-    color: #1d4ed8;
-    text-decoration: underline;
+.work-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    background-color: #4a7c59;
+    color: #ffffff;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    width: fit-content;
+}
+
+.featured-work-content {
+    color: #374151;
+    line-height: 1.6;
+}
+
+.featured-work-desc {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+/* ========================================
+   Zenn記事カード
+   ======================================== */
+.recent-articles-label {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-top: 8px;
+    margin-bottom: 12px;
+}
+
+.days-since-post {
+    font-weight: 400;
+    margin-left: 4px;
+}
+
+.days-number {
+    color: #d97706;
+    font-weight: 600;
+}
+
+.zenn-articles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.loading-text,
+.error-text {
+    font-size: 0.9rem;
+    color: #6b7280;
+    padding: 8px 0;
+}
+
+.error-text {
+    color: #ef4444;
+}
+
+.article-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 16px;
+    background-color: #ffffff;
+    border: 1px solid #e8e3dd;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #374151;
+    transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.article-card:hover {
+    border-color: #4a7c59;
+    box-shadow: 0 2px 8px rgba(74, 124, 89, 0.12);
+    background-color: #f9fdfb;
+    color: #374151;
+    text-decoration: none;
+}
+
+.article-card .article-date {
+    font-size: 0.82rem;
+    color: #9ca3af;
+    min-width: 80px;
+    flex-shrink: 0;
+}
+
+.article-card .article-title {
+    font-size: 0.95rem;
+    flex: 1;
+    line-height: 1.5;
+}
+
+.article-card .article-arrow {
+    color: #c4bfb8;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.article-card:hover .article-arrow {
+    color: #4a7c59;
+    transform: translateX(2px) translateY(-2px);
+}
+
+/* ========================================
+   Interests セクション
+   ======================================== */
+.interests-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.interest-card {
+    background-color: #ffffff;
+    border: 1px solid #e8e3dd;
+    border-radius: 8px;
+    padding: 18px 20px;
+}
+
+.interest-card h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.interest-card p {
+    font-size: 0.875rem;
+    color: #6b7280;
+    line-height: 1.6;
+    margin-bottom: 0;
 }
 
 /* ========================================
    Contact セクション
    ======================================== */
 #contact a {
-    color: #2563eb;
-    text-decoration: none;
-    transition: color 0.2s ease;
+    color: #3b6948;
 }
 
 #contact a:hover {
-    color: #1d4ed8;
-    text-decoration: underline;
+    color: #2d5238;
 }
 
-.contact-note {
-    margin-top: 16px;
-    color: #6b7280;
-    font-size: 0.9rem;
+.contact-callout {
+    margin-top: 24px;
+    background-color: #f5f0eb;
+    border-left: 3px solid #4a7c59;
+    padding: 18px 20px;
+    border-radius: 0 8px 8px 0;
+}
+
+.contact-callout-title {
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.contact-callout ul {
+    padding-left: 20px;
+    margin-bottom: 14px;
+    color: #374151;
+}
+
+.contact-callout li {
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+}
+
+.contact-callout p:last-child {
+    margin-bottom: 0;
 }
 
 /* ========================================
@@ -198,7 +497,7 @@ section p {
 footer {
     margin-top: 80px;
     padding-top: 24px;
-    border-top: 1px solid #e5e7eb;
+    border-top: 1px solid #e8e3dd;
     text-align: center;
 }
 
@@ -227,6 +526,36 @@ footer p {
         width: 100px;
         height: 100px;
     }
+
+    .interests-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .hero-left {
+        width: auto;
+    }
+
+    .hero-right {
+        text-align: center;
+        width: 100%;
+    }
+
+    .summary-row {
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .hero-contact-link {
+        display: block;
+        text-align: center;
+    }
 }
 
 @media (max-width: 480px) {
@@ -239,78 +568,20 @@ footer p {
     }
 
     section {
-        margin-bottom: 48px;
+        margin-bottom: 56px;
     }
 
-    .career-item {
-        margin-bottom: 24px;
-        padding-bottom: 24px;
+    .timeline-item {
+        margin-bottom: 28px;
+        padding-bottom: 28px;
     }
-}
 
-/* ========================================
-   Zenn記事リスト
-   ======================================== */
-.recent-articles-label {
-    font-size: 0.9rem;
-    color: #6b7280;
-    margin-top: 8px;
-    margin-bottom: 4px;
-    padding-left: 16px;
-}
+    .article-card {
+        gap: 10px;
+        padding: 12px 14px;
+    }
 
-.days-since-post {
-    font-weight: 400;
-    margin-left: 4px;
-}
-
-.days-number {
-    color: #f59e0b;
-    font-weight: 600;
-}
-
-.zenn-articles-list {
-    margin-top: 0;
-}
-
-.loading-text,
-.error-text {
-    font-size: 0.9rem;
-    color: #6b7280;
-    padding: 8px 0;
-}
-
-.error-text {
-    color: #ef4444;
-}
-
-.article-item {
-    margin-bottom: 8px;
-    padding-left: 16px;
-}
-
-.article-link {
-    display: flex;
-    gap: 12px;
-    align-items: baseline;
-    text-decoration: none;
-    color: #374151;
-    padding: 6px 0;
-    transition: color 0.2s;
-}
-
-.article-link:hover {
-    color: #3b82f6;
-}
-
-.article-date {
-    font-size: 0.85rem;
-    color: #9ca3af;
-    min-width: 90px;
-    flex-shrink: 0;
-}
-
-.article-title {
-    font-size: 0.95rem;
-    line-height: 1.5;
+    .article-card .article-date {
+        min-width: 68px;
+    }
 }
